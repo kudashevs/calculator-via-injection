@@ -4,7 +4,7 @@ namespace CalculatorViaInterface;
 class CalculatorGenerator
 {
     /**
-     * @var IOperator $operator
+     * @var OperatorInterface $operator
      */
     protected $operator;
 
@@ -21,12 +21,12 @@ class CalculatorGenerator
     /**
      * CalculatorGenerator constructor
      *
-     * @param IOperator $operatorFunction
+     * @param OperatorInterface $operatorFunction
      * @param $operand1
      * @param $operand2
      * @throws \TypeError
      */
-    public function __construct(IOperator $operatorFunction, $operand1, $operand2)
+    public function __construct(OperatorInterface $operatorFunction, $operand1, $operand2)
     {
         $this->operator = $operatorFunction;
 
@@ -38,6 +38,11 @@ class CalculatorGenerator
         $this->operand2 = $operand2;
     }
 
+    /**
+     * Execute operator calculation
+     *
+     * @return mixed
+     */
     public function calculate() {
         return $this->operator->execute($this->operand1, $this->operand2);
     }

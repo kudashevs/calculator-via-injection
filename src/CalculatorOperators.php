@@ -1,7 +1,7 @@
 <?php
 namespace CalculatorViaInterface;
 
-class Addition implements IOperator
+class Addition implements OperatorInterface
 {
     /**
      * Addition operator
@@ -16,7 +16,7 @@ class Addition implements IOperator
     }
 }
 
-class Substraction implements IOperator
+class Substraction implements OperatorInterface
 {
     /** Substraction operator
      *
@@ -30,7 +30,7 @@ class Substraction implements IOperator
     }
 }
 
-class Multiplication implements IOperator
+class Multiplication implements OperatorInterface
 {
     /** Multiplication operator
      *
@@ -44,7 +44,7 @@ class Multiplication implements IOperator
     }
 }
 
-class Division implements IOperator
+class Division implements OperatorInterface
 {
     /** Division operator
      *
@@ -54,10 +54,28 @@ class Division implements IOperator
      */
     public function execute($a, $b)
     {
-        if ($b === 0) {
+        if ($b == 0) {
             throw new \DivisionByZeroError('Argument must no be zero.');
         }
 
         return $a / $b;
+    }
+}
+
+class Modulus implements OperatorInterface
+{
+    /** Modulus operator
+     *
+     * @param int|float $a
+     * @param int|float $b
+     * @return int|float
+     */
+    public function execute($a, $b)
+    {
+        if ($b == 0) {
+            throw new \DivisionByZeroError('Argument must no be zero.');
+        }
+
+        return $a % $b;
     }
 }

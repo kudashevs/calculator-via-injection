@@ -1,7 +1,7 @@
 <?php
 namespace CalculatorViaInterface;
 
-interface IOperator
+interface OperatorInterface
 {
     public function execute($a, $b);
 }

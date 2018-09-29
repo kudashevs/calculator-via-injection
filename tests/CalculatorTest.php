@@ -6,13 +6,21 @@ use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    public function testWrongParametersException()
+    public function testWrongInterfaceParameterTypeException()
     {
-        $this->expectException('TypeError');
+        $this->expectException('\TypeError');
         $calculator = new CalculatorGenerator(new \stdClass(), 2, 0);
-        $this->expectException('TypeError');
+    }
+
+    public function testWrongFirstNumericParameterTypeException()
+    {
+        $this->expectException('\TypeError');
         $calculator = new CalculatorGenerator(new Addition(), 'x', 0);
-        $this->expectException('TypeError');
+    }
+
+    public function testWrongSecondNumericParameterTypeException()
+    {
+        $this->expectException('\TypeError');
         $calculator = new CalculatorGenerator(new Addition(), 2, 'y');
     }
 
@@ -20,31 +28,53 @@ class CalculatorTest extends TestCase
     {
         $calculator = new CalculatorGenerator(new Addition(), 2, 2);
         $this->assertEquals(4, $calculator->calculate());
+        $calculator = new CalculatorGenerator(new Addition(), 5, 2);
+        $this->assertEquals(7, $calculator->calculate());
     }
 
     public function testCalculateSubstraction()
     {
         $calculator = new CalculatorGenerator(new Substraction(), 2, 2);
         $this->assertEquals(0, $calculator->calculate());
+        $calculator = new CalculatorGenerator(new Substraction(), 5, 2);
+        $this->assertEquals(3, $calculator->calculate());
     }
 
     public function testCalculateMultiplication()
     {
         $calculator = new CalculatorGenerator(new Multiplication(), 2, 2);
         $this->assertEquals(4, $calculator->calculate());
+        $calculator = new CalculatorGenerator(new Multiplication(), 5, 2);
+        $this->assertEquals(10, $calculator->calculate());
     }
 
     public function testCalculateDivision()
     {
         $calculator = new CalculatorGenerator(new Division(), 2, 2);
         $this->assertEquals(1, $calculator->calculate());
+        $calculator = new CalculatorGenerator(new Division(), 5, 2);
+        $this->assertEquals(2.5, $calculator->calculate());
     }
 
-    public function testCalculateZeroEception()
+    public function testCalculateDivisionZeroException()
     {
         $calculator = new CalculatorGenerator(new Division(), 2, 0);
         $this->expectException('DivisionByZeroError');
         $calculator->calculate();
     }
 
+    public function testCalculateModulus()
+    {
+        $calculator = new CalculatorGenerator(new Modulus(), 2, 2);
+        $this->assertEquals(0, $calculator->calculate());
+        $calculator = new CalculatorGenerator(new Modulus(), 5, 2);
+        $this->assertEquals(1, $calculator->calculate());
+    }
+
+    public function testCalculateModulusZeroException()
+    {
+        $calculator = new CalculatorGenerator(new Modulus(), 2, 0);
+        $this->expectException('DivisionByZeroError');
+        $calculator->calculate();
+    }
 }
