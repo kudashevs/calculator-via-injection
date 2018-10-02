@@ -1,5 +1,5 @@
 <?php
-namespace CalculatorViaInterface;
+namespace CalculatorViaInterface\Operators;
 
 interface OperatorInterface
 {

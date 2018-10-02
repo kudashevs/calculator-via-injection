@@ -1,6 +1,8 @@
 <?php
 namespace CalculatorViaInterface;
 
+use CalculatorViaInterface\Operators\OperatorInterface;
+
 class CalculatorGenerator
 {
     /**
@@ -22,8 +24,9 @@ class CalculatorGenerator
      * CalculatorGenerator constructor
      *
      * @param OperatorInterface $operatorFunction
-     * @param $operand1
-     * @param $operand2
+     * @param int|float $operand1
+     * @param int|float $operand2
+     *
      * @throws \TypeError
      */
     public function __construct(OperatorInterface $operatorFunction, $operand1, $operand2)

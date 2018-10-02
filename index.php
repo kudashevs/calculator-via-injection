@@ -1,10 +1,26 @@
 <?php
-namespace CalculatorViaInterface;
 
-require_once 'src/bootstrap.php';
+use CalculatorViaInterface\CalculatorGenerator;
+use CalculatorViaInterface\Operators\Addition;
+use CalculatorViaInterface\Operators\Division;
 
-$calculator = new CalculatorGenerator(new Addition(), 1, 2);
-echo $calculator->calculate() . PHP_EOL; // 3
+require_once 'vendor/autoload.php';
 
-$calculator = new CalculatorGenerator(new Division(), 1, 2);
-echo $calculator->calculate() . PHP_EOL; // 0.5
+try {
+    $calculator = new CalculatorGenerator(new Addition(), 1, 2);
+    echo $calculator->calculate() . PHP_EOL; // 3
+} catch (\TypeError $e) {
+    error_log('PHP Exception: ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine() . '', 0);
+    echo 'Wrong arguments type passed to constructor!' . PHP_EOL;
+}
+
+try {
+    $calculator = new CalculatorGenerator(new Division(), 1, 2);
+    echo $calculator->calculate() . PHP_EOL; // 0.5
+} catch (\DivisionByZeroError $e) {
+    error_log('PHP Exception: ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine(). '', 0);
+    echo 'Division failed due to division by zero error!' . PHP_EOL;
+} catch (\TypeError $e) {
+    error_log('PHP Exception: ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine() . '', 0);
+    echo 'Wrong arguments type passed to constructor!' . PHP_EOL;
+}

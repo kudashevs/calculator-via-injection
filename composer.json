@@ -16,6 +16,13 @@
       "phpunit/phpunit": "^7.0"
   },
   "autoload": {
-    "files": ["src/bootstrap.php"]
+    "psr-4": {
+      "CalculatorViaInterface\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CalculatorViaInterface\\Test\\": "tests/"
+    }
   }
 }

@@ -1,17 +1,36 @@
 <?php
 
-namespace CalculatorViaInterface;
+namespace CalculatorViaInterface\Test;
+
+use CalculatorViaInterface\CalculatorGenerator;
+use CalculatorViaInterface\Operators\Addition;
+use CalculatorViaInterface\Operators\Substraction;
+use CalculatorViaInterface\Operators\Multiplication;
+use CalculatorViaInterface\Operators\Division;
+use CalculatorViaInterface\Operators\Modulus;
 
 use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    public function testWrongInterfaceParameterTypeException()
+    public function testWrongConstructorArgumentTypeException()
+    {
+        $this->expectException('\TypeError');
+        $calculator = new CalculatorGenerator('Class', 1, 1);
+    }
+
+    public function testWrongConstructorClassTypeException()
     {
         $this->expectException('\TypeError');
         $calculator = new CalculatorGenerator(new \stdClass(), 2, 0);
     }
 
+    public function testWrongConstructorArgumentCountException()
+    {
+        $this->expectException('\ArgumentCountError');
+        $calculator = new CalculatorGenerator(new Addition(), 1);
+    }
+    
     public function testWrongFirstNumericParameterTypeException()
     {
         $this->expectException('\TypeError');
@@ -59,7 +78,7 @@ class CalculatorTest extends TestCase
     public function testCalculateDivisionZeroException()
     {
         $calculator = new CalculatorGenerator(new Division(), 2, 0);
-        $this->expectException('DivisionByZeroError');
+        $this->expectException('\DivisionByZeroError');
         $calculator->calculate();
     }
 
@@ -74,7 +93,7 @@ class CalculatorTest extends TestCase
     public function testCalculateModulusZeroException()
     {
         $calculator = new CalculatorGenerator(new Modulus(), 2, 0);
-        $this->expectException('DivisionByZeroError');
+        $this->expectException('\DivisionByZeroError');
         $calculator->calculate();
     }
 }
