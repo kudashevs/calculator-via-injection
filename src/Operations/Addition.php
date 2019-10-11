@@ -1,17 +1,20 @@
 <?php
+
 namespace CalculatorViaInterface\Operations;
 
-class Addition implements Operation
+class Addition implements Operable
 {
+    use Validator;
+
     /**
-     * Addition operator
-     *
      * @param int|float $a
      * @param int|float $b
      * @return int|float
      */
-    public function execute($a, $b)
+    public function handle($a, $b)
     {
+        $this->check($a, $b);
+
         return $a + $b;
     }
 }

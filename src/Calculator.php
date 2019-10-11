@@ -2,52 +2,62 @@
 
 namespace CalculatorViaInterface;
 
-use CalculatorViaInterface\Operations\Operation;
+use CalculatorViaInterface\Operations\Operable;
 
 class Calculator
 {
     /**
-     * @var Operation $operator
+     * @var Operable
      */
     protected $operator;
 
     /**
-     * @var int|float $operand1
+     * @var int|float[]
      */
-    protected $operand1;
+    protected $operands;
 
     /**
-     * @var int|float $operand2
-     */
-    protected $operand2;
-
-    /**
-     * CalculatorGenerator constructor
+     * CalculatorGenerator constructor.
      *
-     * @param Operation $operatorFunction
-     * @param int|float $operand1
-     * @param int|float $operand2
-     *
-     * @throws \TypeError
+     * @param Operable $operation
+     * @param mixed ...$operands
      */
-    public function __construct(Operation $operatorFunction, $operand1, $operand2)
+    public function __construct(Operable $operation, ...$operands)
     {
-        $this->operator = $operatorFunction;
-
-        if (!is_numeric($operand1) || !is_numeric($operand2)) {
-            throw new \TypeError('Operand must be numeric.');
-        }
-
-        $this->operand1 = $operand1;
-        $this->operand2 = $operand2;
+        $this->operator = $operation;
+        $this->operands = $this->initOperands($operands);
     }
 
     /**
-     * Execute operator calculation
+     * Execute operator calculation.
      *
      * @return mixed
      */
-    public function calculate() {
-        return $this->operator->execute($this->operand1, $this->operand2);
+    public function calculate()
+    {
+        return $this->operator->handle($this->operands[0], $this->operands[1]);
+    }
+
+    /**
+     * @param array $operands
+     * @return array
+     */
+    protected function initOperands(array $operands): array
+    {
+        if (empty($operands)) {
+            throw new \InvalidArgumentException('Empty array provided.');
+        }
+
+        if (count($operands) !== 2) {
+            throw new \InvalidArgumentException('You should provide 2 operand.');
+        }
+
+        foreach ($operands as $operand) {
+            if (!is_numeric($operand)) {
+                throw new \InvalidArgumentException('Operand must be numeric.');
+            }
+        }
+
+        return $operands;
     }
 }

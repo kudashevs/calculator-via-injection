@@ -1,16 +1,20 @@
 <?php
+
 namespace CalculatorViaInterface\Operations;
 
-class Substraction implements Operation
+class Subtraction implements Operable
 {
-    /** Substraction operator
-     *
+    use Validator;
+
+    /**
      * @param int|float $a
      * @param int|float $b
      * @return int|float
      */
-    public function execute($a, $b)
+    public function handle($a, $b)
     {
+        $this->check($a, $b);
+
         return $a - $b;
     }
 }

@@ -1,20 +1,31 @@
 <?php
+
 namespace CalculatorViaInterface\Operations;
 
-class Division implements Operation
+class Division implements Operable
 {
-    /** Division operator
-     *
+    use Validator {
+        check as originalCheck;
+    }
+
+    /**
      * @param int|float $a
      * @param int|float $b
      * @return int|float
      */
-    public function execute($a, $b)
+    public function handle($a, $b)
     {
-        if ($b == 0) {
-            throw new \DivisionByZeroError('Argument must no be zero.');
-        }
+        $this->check($a, $b);
 
         return $a / $b;
+    }
+
+    public function check($a, $b)
+    {
+        $this->originalCheck($a, $b);
+
+        if ($a == 0 || $b == 0) {
+            throw new \DivisionByZeroError('Argument cannot be zero.');
+        }
     }
 }

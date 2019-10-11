@@ -2,45 +2,39 @@
 
 namespace CalculatorViaInterface\Tests;
 
-use CalculatorViaInterface\Calculator;
-use CalculatorViaInterface\Operations\Addition;
-use CalculatorViaInterface\Operations\Substraction;
-use CalculatorViaInterface\Operations\Multiplication;
-use CalculatorViaInterface\Operations\Division;
-use CalculatorViaInterface\Operations\Modulus;
-
 use PHPUnit\Framework\TestCase;
+use CalculatorViaInterface\Calculator;
+use CalculatorViaInterface\Operations\Modulus;
+use CalculatorViaInterface\Operations\Addition;
+use CalculatorViaInterface\Operations\Division;
+use CalculatorViaInterface\Operations\Subtraction;
+
+use CalculatorViaInterface\Operations\Multiplication;
 
 class CalculatorTest extends TestCase
 {
-    public function testWrongConstructorArgumentTypeException()
+    public function testConstructorThrowExceptionWhenArgumentEmptyArray()
     {
-        $this->expectException('\TypeError');
-        $calculator = new Calculator('Class', 1, 1);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Empty array provided.');
+
+        $calculator = new Calculator(new Addition());
     }
 
-    public function testWrongConstructorClassTypeException()
+    public function testConstructorThrowExceptionWhenLessThanTwoOperands()
     {
-        $this->expectException('\TypeError');
-        $calculator = new Calculator(new \stdClass(), 2, 0);
-    }
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('You should provide 2 operand.');
 
-    public function testWrongConstructorArgumentCountException()
-    {
-        $this->expectException('\ArgumentCountError');
         $calculator = new Calculator(new Addition(), 1);
     }
-    
-    public function testWrongFirstNumericParameterTypeException()
-    {
-        $this->expectException('\TypeError');
-        $calculator = new Calculator(new Addition(), 'x', 0);
-    }
 
-    public function testWrongSecondNumericParameterTypeException()
+    public function testConstructorThrowExceptionWhenOperandNotNumeric()
     {
-        $this->expectException('\TypeError');
-        $calculator = new Calculator(new Addition(), 2, 'y');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Operand must be numeric.');
+
+        $calculator = new Calculator(new Addition(), 'x', 0);
     }
 
     public function testCalculateAddition()
@@ -53,9 +47,9 @@ class CalculatorTest extends TestCase
 
     public function testCalculateSubstraction()
     {
-        $calculator = new Calculator(new Substraction(), 2, 2);
+        $calculator = new Calculator(new Subtraction(), 2, 2);
         $this->assertEquals(0, $calculator->calculate());
-        $calculator = new Calculator(new Substraction(), 5, 2);
+        $calculator = new Calculator(new Subtraction(), 5, 2);
         $this->assertEquals(3, $calculator->calculate());
     }
 
