@@ -1,17 +1,14 @@
 ## Calculator Via Interface
 
-A simple calculator app written in PHP with PHPUnit tests which implements mathematics operators through interface.
+A simple calculator app is written in PHP and implements mathematics operations through simple injected classes unified
+with an interface.
 
-Basic idea is to use CalculatorGenerator class which receive class (implements interface IOperator) and two numerical arguments.
-After class creation we must execute the calculate() method. Calculation result rely on passed class-argument implementation.
-The example of CalculatorGenerator class usage you can find in index.php file in the root directory.
-
-The main advantages of this approach is:
-* security (type-hint of a class-argument in constructor guarantees right class instance)
-* scalability (you can simply add any new mathematics operator at any time through the interface)
-* maintainability (you can simply add new operators without need to make any change in main functionality)
-* testability (you can easily test any new operator implementation separately from other functionality)
+Basic idea is to use Calculator class which receives something, that implements Operable interface, and two numerical arguments.
+To make calculations we should execute the calculate() method. Calculation result depends on passed object implementation.
+Don't treat this class seriously, here Abstract class would work better, but I wanted to keep the main idea, the source of
+that project. That's why the final version of the class is over-engineered with Validator trait. The example of Calculator
+class usage you can find in index.php file in the root directory.
 
 
-This is not ideal solution and only a case study on how to implement some functionality through interfaces.  
-Any ideas, suggestions, issues, code reviews and comments are highly welcome :)
+This isn't a production solution, but only a training exercise which helps better understand how interfaces and DI work.  
+Any ideas, suggestions, and reviews will be much appreciated :)
