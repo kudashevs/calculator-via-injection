@@ -1,6 +1,6 @@
 {
   "name": "kudashevs/CalculatorViaInterface",
-  "description": "Case study of implement some functionality through Interface.",
+  "description": "A simple calculator app which implements mathematical operations through simple injected classes.",
   "keywords": ["php", "study", "calculator", "interface"],
   "license": "MIT",
   "authors": [
@@ -22,7 +22,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "CalculatorViaInterface\\Test\\": "tests/"
+      "CalculatorViaInterface\\Tests\\": "tests/"
     }
   }
 }
