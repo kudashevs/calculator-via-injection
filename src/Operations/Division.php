@@ -1,7 +1,7 @@
 <?php
-namespace CalculatorViaInterface\Operators;
+namespace CalculatorViaInterface\Operations;
 
-class Division implements OperatorInterface
+class Division implements Operation
 {
     /** Division operator
      *

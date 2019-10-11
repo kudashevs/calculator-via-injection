@@ -1,7 +1,7 @@
 <?php
-namespace CalculatorViaInterface\Operators;
+namespace CalculatorViaInterface\Operations;
 
-class Modulus implements OperatorInterface
+class Modulus implements Operation
 {
     /** Modulus operator
      *

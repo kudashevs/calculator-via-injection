@@ -1,9 +1,10 @@
 <?php
-namespace CalculatorViaInterface\Operators;
+namespace CalculatorViaInterface\Operations;
 
-class Multiplication implements OperatorInterface
+class Addition implements Operation
 {
-    /** Multiplication operator
+    /**
+     * Addition operator
      *
      * @param int|float $a
      * @param int|float $b
@@ -11,6 +12,6 @@ class Multiplication implements OperatorInterface
      */
     public function execute($a, $b)
     {
-        return $a * $b;
+        return $a + $b;
     }
 }

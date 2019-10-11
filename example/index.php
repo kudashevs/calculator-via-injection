@@ -1,8 +1,8 @@
 <?php
 
 use CalculatorViaInterface\CalculatorGenerator;
-use CalculatorViaInterface\Operators\Addition;
-use CalculatorViaInterface\Operators\Division;
+use CalculatorViaInterface\Operations\Addition;
+use CalculatorViaInterface\Operations\Division;
 
 require_once 'vendor/autoload.php';
 

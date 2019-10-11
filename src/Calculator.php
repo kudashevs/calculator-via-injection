@@ -1,12 +1,13 @@
 <?php
+
 namespace CalculatorViaInterface;
 
-use CalculatorViaInterface\Operators\OperatorInterface;
+use CalculatorViaInterface\Operations\Operation;
 
-class CalculatorGenerator
+class Calculator
 {
     /**
-     * @var OperatorInterface $operator
+     * @var Operation $operator
      */
     protected $operator;
 
@@ -23,13 +24,13 @@ class CalculatorGenerator
     /**
      * CalculatorGenerator constructor
      *
-     * @param OperatorInterface $operatorFunction
+     * @param Operation $operatorFunction
      * @param int|float $operand1
      * @param int|float $operand2
      *
      * @throws \TypeError
      */
-    public function __construct(OperatorInterface $operatorFunction, $operand1, $operand2)
+    public function __construct(Operation $operatorFunction, $operand1, $operand2)
     {
         $this->operator = $operatorFunction;
 
