@@ -1,28 +1,29 @@
 {
-  "name": "kudashevs/CalculatorViaInterface",
-  "description": "A simple calculator app which implements mathematical operations through simple injected classes.",
-  "keywords": ["php", "study", "calculator", "interface"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Serge Kudashev",
-      "email": "kudashevs@gmail.com"
+    "name": "kudashevs/calculator-via-interface",
+    "type": "study-case",
+    "description": "A simple calculator app that implements math operations through a dependency injection.",
+    "keywords": ["php", "study", "study case", "calculator", "interface"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Serge Kudashev",
+            "email": "kudashevs@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CalculatorViaInterface\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CalculatorViaInterface\\Tests\\": "tests/"
+        }
     }
-  ],
-  "require": {
-    "php": "^7.0"
-  },
-  "require-dev": {
-      "phpunit/phpunit": "^7.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "CalculatorViaInterface\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "CalculatorViaInterface\\Tests\\": "tests/"
-    }
-  }
 }
