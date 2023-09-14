@@ -1,6 +1,6 @@
 <?php
 
-namespace CalculatorViaInterface\Tests;
+namespace CalculatorViaInterface\Tests\Operations;
 
 use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Operations\Addition;
