@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class SubtractionTest extends TestCase
 {
-    /**
-     * Exceptions.
-     */
     public function testCheckThrowExceptionWhenArgumentNotNumeric()
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -18,19 +15,12 @@ class SubtractionTest extends TestCase
         $operation->handle(12, 'str');
     }
 
-    /**
-     * Corner cases.
-     */
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Subtraction();
 
         $this->assertSame(32, $addition->handle(12, -20));
     }
-
-    /**
-     * Functionality.
-     */
 
     /**
      * @dataProvider provideData

@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class DivisionTest extends TestCase
 {
-    /**
-     * Exceptions.
-     */
     public function testCheckThrowExceptionWhenArgumentNotNumeric()
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -26,19 +23,12 @@ class DivisionTest extends TestCase
         $operation->handle(22, 0);
     }
 
-    /**
-     * Corner cases.
-     */
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Division();
 
         $this->assertSame(-1.2, $addition->handle(12, -10));
     }
-
-    /**
-     * Functionality.
-     */
 
     /**
      * @dataProvider provideData

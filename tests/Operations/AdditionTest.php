@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class AdditionTest extends TestCase
 {
-    /**
-     * Exceptions.
-     */
     public function testCheckThrowExceptionWhenArgumentNotNumeric()
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -18,19 +15,12 @@ class AdditionTest extends TestCase
         $operation->handle(12, 'str');
     }
 
-    /**
-     * Corner cases.
-     */
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $operation = new Addition();
 
         $this->assertSame(-8, $operation->handle(12, -20));
     }
-
-    /**
-     * Functionality.
-     */
 
     /**
      * @dataProvider provideData

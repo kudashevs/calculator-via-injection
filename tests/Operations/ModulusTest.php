@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ModulusTest extends TestCase
 {
-    /**
-     * Exceptions.
-     */
     public function testCheckThrowExceptionWhenArgumentNotNumeric()
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -26,19 +23,12 @@ class ModulusTest extends TestCase
         $operation->handle(22, 0);
     }
 
-    /**
-     * Corner cases.
-     */
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Modulus();
 
         $this->assertSame(2, $addition->handle(12, -10));
     }
-
-    /**
-     * Functionality.
-     */
 
     /**
      * @dataProvider provideData
