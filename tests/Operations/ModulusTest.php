@@ -2,8 +2,8 @@
 
 namespace CalculatorViaInterface\Tests\Operations;
 
-use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Operations\Modulus;
+use PHPUnit\Framework\TestCase;
 
 class ModulusTest extends TestCase
 {

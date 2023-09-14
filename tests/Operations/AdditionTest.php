@@ -2,8 +2,8 @@
 
 namespace CalculatorViaInterface\Tests\Operations;
 
-use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Operations\Addition;
+use PHPUnit\Framework\TestCase;
 
 class AdditionTest extends TestCase
 {

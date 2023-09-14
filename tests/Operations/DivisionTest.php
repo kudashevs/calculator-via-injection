@@ -2,8 +2,8 @@
 
 namespace CalculatorViaInterface\Tests\Operations;
 
-use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Operations\Division;
+use PHPUnit\Framework\TestCase;
 
 class DivisionTest extends TestCase
 {

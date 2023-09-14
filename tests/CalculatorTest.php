@@ -2,9 +2,9 @@
 
 namespace CalculatorViaInterface\Tests;
 
-use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Calculator;
 use CalculatorViaInterface\Operations\Addition;
+use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {

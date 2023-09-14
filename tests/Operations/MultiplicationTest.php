@@ -2,8 +2,8 @@
 
 namespace CalculatorViaInterface\Tests\Operations;
 
-use PHPUnit\Framework\TestCase;
 use CalculatorViaInterface\Operations\Multiplication;
+use PHPUnit\Framework\TestCase;
 
 class MultiplicationTest extends TestCase
 {
