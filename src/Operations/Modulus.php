@@ -8,7 +8,7 @@ class Modulus implements Calculable
         validate as originalCheck;
     }
 
-    public function check($a, $b)
+    private function check($a, $b): void
     {
         $this->originalCheck([$a, $b]);
 

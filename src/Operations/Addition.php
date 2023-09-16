@@ -6,7 +6,7 @@ class Addition implements Calculable
 {
     use Validator;
 
-    public function check($a, $b)
+    private function check($a, $b): void
     {
         $this->validate([$a, $b]);
     }

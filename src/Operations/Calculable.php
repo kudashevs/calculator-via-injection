@@ -4,8 +4,6 @@ namespace CalculatorViaInterface\Operations;
 
 interface Calculable
 {
-    public function check($a, $b);
-
     /**
      * @param int|float $a
      * @param int|float $b
