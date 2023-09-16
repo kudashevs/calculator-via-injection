@@ -6,20 +6,19 @@ class Subtraction implements Calculable
 {
     use Validator;
 
-    private function check($a, $b): void
+    private function check(...$arguments): void
     {
-        $this->validate([$a, $b]);
+        $this->validate($arguments);
     }
 
     /**
-     * @param int|float $a
-     * @param int|float $b
+     * @param int|float ...$arguments
      * @return int|float
      */
-    public function calculate($a, $b)
+    public function calculate(...$arguments)
     {
-        $this->check($a, $b);
+        $this->check(...$arguments);
 
-        return $a - $b;
+        return array_shift($arguments) - array_sum($arguments);
     }
 }

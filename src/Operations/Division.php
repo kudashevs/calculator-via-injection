@@ -4,28 +4,31 @@ namespace CalculatorViaInterface\Operations;
 
 class Division implements Calculable
 {
-    use Validator {
-        validate as originalCheck;
-    }
+    use Validator;
 
-    private function check($a, $b): void
+    private function check(...$arguments): void
     {
-        $this->originalCheck([$a, $b]);
+        $this->validate($arguments);
 
-        if ($a == 0 || $b == 0) {
-            throw new \DivisionByZeroError('Argument cannot be zero.');
+        foreach ($arguments as $argument) {
+            if ($argument === 0) {
+                throw new \DivisionByZeroError('Cannot divide by zero.');
+            }
         }
     }
 
     /**
-     * @param int|float $a
-     * @param int|float $b
+     * @param int|float ...$arguments
      * @return int|float
      */
-    public function calculate($a, $b)
+    public function calculate(...$arguments)
     {
-        $this->check($a, $b);
+        $this->check(...$arguments);
 
-        return $a / $b;
+        $start = array_shift($arguments);
+
+        return array_reduce($arguments, function ($carry, $value) {
+            return $carry / $value;
+        }, $start);
     }
 }
