@@ -4,48 +4,58 @@ namespace CalculatorViaInterface\Tests;
 
 use CalculatorViaInterface\Calculator;
 use CalculatorViaInterface\Operations\Addition;
+use CalculatorViaInterface\Operations\Subtraction;
 use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    public function testConstructorThrowExceptionWhenArgumentEmptyArray()
+    /** @test */
+    public function it_can_throw_an_exception_when_no_arguments_are_provided()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Empty array provided.');
+        $this->expectExceptionMessage('at least');
 
-        $calculator = new Calculator(new Addition());
+        $addition = new Calculator(new Addition());
+        $addition->calculate();
     }
 
-    public function testConstructorThrowExceptionWhenLessThanTwoOperands()
+    /** @test */
+    public function it_can_throw_an_exception_when_an_argument_with_a_wrong_type()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('You should provide 2 operand.');
+        $this->expectExceptionMessage('numeric');
 
-        $calculator = new Calculator(new Addition(), 1);
+        $subtraction = new Calculator(new Subtraction());
+        $subtraction->calculate(42, 'wrong');
     }
 
-    public function testConstructorThrowExceptionWhenOperandNotNumeric()
+    /** @test */
+    public function it_can_perform_an_addition()
     {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Operand must be numeric.');
+        $addition = new Calculator(new Addition());
+        $result = $addition->calculate(2, 3, 4);
 
-        $calculator = new Calculator(new Addition(), 'x', 0);
+        $this->assertSame(9, $result);
     }
 
-    public function testOperableWorksAsExpectedWhenMock()
+    /** @test */
+    public function it_uses_an_operation_when_it_performs_calculations()
     {
-        $mock = $this->getMockBuilder(Addition::class)
-            ->setMethods(['check', 'calculate'])
-            ->getMock();
-        $mock->expects($this->once())
+        // however, this test seems to be redundant and white box testing
+        // I'd like to keep it here for the education purposes
+        $additionMock = $this->createMock(Addition::class);
+        $additionMock->expects($this->once())
             ->method('calculate')
             ->with(
                 $this->equalTo(2),
-                $this->equalTo(2)
+                $this->equalTo(3),
+                $this->equalTo(4),
             )
-            ->willReturn(4);
+            ->willReturn(9);
 
-        $calc = new Calculator($mock, 2, 2);
-        $this->assertEquals(4, $calc->calculate());
+        $addition = new Calculator($additionMock);
+        $result = $addition->calculate(2, 3, 4);
+
+        $this->assertEquals(9, $result);
     }
 }
