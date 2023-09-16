@@ -35,10 +35,10 @@ class CalculatorTest extends TestCase
     public function testOperableWorksAsExpectedWhenMock()
     {
         $mock = $this->getMockBuilder(Addition::class)
-            ->setMethods(['check', 'handle'])
+            ->setMethods(['check', 'calculate'])
             ->getMock();
         $mock->expects($this->once())
-            ->method('handle')
+            ->method('calculate')
             ->with(
                 $this->equalTo(2),
                 $this->equalTo(2)

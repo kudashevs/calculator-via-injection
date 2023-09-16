@@ -12,14 +12,14 @@ class MultiplicationTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         $operation = new Multiplication();
-        $operation->handle(12, 'str');
+        $operation->calculate(12, 'str');
     }
 
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Multiplication();
 
-        $this->assertSame(-240, $addition->handle(12, -20));
+        $this->assertSame(-240, $addition->calculate(12, -20));
     }
 
     /**
@@ -29,7 +29,7 @@ class MultiplicationTest extends TestCase
     {
         $operation = new Multiplication();
 
-        $this->assertSame($expected, $operation->handle(...$data));
+        $this->assertSame($expected, $operation->calculate(...$data));
     }
 
     public function provideData()

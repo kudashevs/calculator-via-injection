@@ -35,7 +35,7 @@ class Calculator
      */
     public function calculate()
     {
-        return $this->operator->handle($this->operands[0], $this->operands[1]);
+        return $this->operator->calculate($this->operands[0], $this->operands[1]);
     }
 
     /**

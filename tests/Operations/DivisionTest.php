@@ -12,7 +12,7 @@ class DivisionTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         $operation = new Division();
-        $operation->handle(12, 'str');
+        $operation->calculate(12, 'str');
     }
 
     public function testCheckThrowExceptionWhenArgumentsContainZero()
@@ -20,14 +20,14 @@ class DivisionTest extends TestCase
         $this->expectException(\DivisionByZeroError::class);
 
         $operation = new Division();
-        $operation->handle(22, 0);
+        $operation->calculate(22, 0);
     }
 
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Division();
 
-        $this->assertSame(-1.2, $addition->handle(12, -10));
+        $this->assertSame(-1.2, $addition->calculate(12, -10));
     }
 
     /**
@@ -37,7 +37,7 @@ class DivisionTest extends TestCase
     {
         $operation = new Division();
 
-        $this->assertSame($expected, $operation->handle(...$data));
+        $this->assertSame($expected, $operation->calculate(...$data));
     }
 
     public function provideData()

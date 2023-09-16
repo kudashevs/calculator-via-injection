@@ -12,7 +12,7 @@ class ModulusTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         $operation = new Modulus();
-        $operation->handle(12, 'str');
+        $operation->calculate(12, 'str');
     }
 
     public function testCheckThrowExceptionWhenArgumentsContainZero()
@@ -20,14 +20,14 @@ class ModulusTest extends TestCase
         $this->expectException(\DivisionByZeroError::class);
 
         $operation = new Modulus();
-        $operation->handle(22, 0);
+        $operation->calculate(22, 0);
     }
 
     public function testCalculateReturnExpectedWhenInputContainsNegative()
     {
         $addition = new Modulus();
 
-        $this->assertSame(2, $addition->handle(12, -10));
+        $this->assertSame(2, $addition->calculate(12, -10));
     }
 
     /**
@@ -37,7 +37,7 @@ class ModulusTest extends TestCase
     {
         $operation = new Modulus();
 
-        $this->assertSame($expected, $operation->handle(...$data));
+        $this->assertSame($expected, $operation->calculate(...$data));
     }
 
     public function provideData()

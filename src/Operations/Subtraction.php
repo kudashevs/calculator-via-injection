@@ -16,7 +16,7 @@ class Subtraction implements Calculable
      * @param int|float $b
      * @return int|float
      */
-    public function handle($a, $b)
+    public function calculate($a, $b)
     {
         $this->check($a, $b);
 
