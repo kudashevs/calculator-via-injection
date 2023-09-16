@@ -2,7 +2,7 @@
 
 namespace CalculatorViaInterface\Operations;
 
-class Multiplication implements Operable
+class Multiplication implements Calculable
 {
     use Validator;
 

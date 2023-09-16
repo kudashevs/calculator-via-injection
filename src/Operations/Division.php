@@ -2,7 +2,7 @@
 
 namespace CalculatorViaInterface\Operations;
 
-class Division implements Operable
+class Division implements Calculable
 {
     use Validator {
         check as originalCheck;

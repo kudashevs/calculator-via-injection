@@ -2,12 +2,12 @@
 
 namespace CalculatorViaInterface;
 
-use CalculatorViaInterface\Operations\Operable;
+use CalculatorViaInterface\Operations\Calculable;
 
 class Calculator
 {
     /**
-     * @var Operable
+     * @var Calculable
      */
     protected $operator;
 
@@ -19,10 +19,10 @@ class Calculator
     /**
      * CalculatorGenerator constructor.
      *
-     * @param Operable $operation
+     * @param Calculable $operation
      * @param mixed ...$operands
      */
-    public function __construct(Operable $operation, ...$operands)
+    public function __construct(Calculable $operation, ...$operands)
     {
         $this->operator = $operation;
         $this->operands = $this->initOperands($operands);

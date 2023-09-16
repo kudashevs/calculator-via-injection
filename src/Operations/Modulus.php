@@ -2,7 +2,7 @@
 
 namespace CalculatorViaInterface\Operations;
 
-class Modulus implements Operable
+class Modulus implements Calculable
 {
     use Validator {
         check as originalCheck;

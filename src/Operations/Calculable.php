@@ -2,7 +2,7 @@
 
 namespace CalculatorViaInterface\Operations;
 
-interface Operable
+interface Calculable
 {
     public function check($a, $b);
 

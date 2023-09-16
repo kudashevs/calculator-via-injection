@@ -2,7 +2,7 @@
 
 namespace CalculatorViaInterface\Operations;
 
-class Subtraction implements Operable
+class Subtraction implements Calculable
 {
     use Validator;
 
