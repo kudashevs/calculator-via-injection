@@ -4,17 +4,8 @@ namespace CalculatorViaInterface\Operations;
 
 class Division implements Calculable
 {
-    use Validator;
-
-    private function check(...$arguments): void
-    {
-        $this->validate($arguments);
-
-        foreach ($arguments as $argument) {
-            if ($argument === 0) {
-                throw new \DivisionByZeroError('Cannot divide by zero.');
-            }
-        }
+    use Validator {
+        validate as traitValidate;
     }
 
     /**
@@ -23,12 +14,23 @@ class Division implements Calculable
      */
     public function calculate(...$arguments)
     {
-        $this->check(...$arguments);
+        $this->validate($arguments);
 
         $start = array_shift($arguments);
 
         return array_reduce($arguments, function ($carry, $value) {
             return $carry / $value;
         }, $start);
+    }
+
+    private function validate(array $arguments): void
+    {
+        $this->traitValidate($arguments);
+
+        foreach ($arguments as $argument) {
+            if ($argument === 0) {
+                throw new \DivisionByZeroError('Cannot divide by zero.');
+            }
+        }
     }
 }
