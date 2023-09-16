@@ -5,7 +5,16 @@ namespace CalculatorViaInterface\Operations;
 class Division implements Calculable
 {
     use Validator {
-        check as originalCheck;
+        validate as originalCheck;
+    }
+
+    public function check($a, $b)
+    {
+        $this->originalCheck([$a, $b]);
+
+        if ($a == 0 || $b == 0) {
+            throw new \DivisionByZeroError('Argument cannot be zero.');
+        }
     }
 
     /**
@@ -18,14 +27,5 @@ class Division implements Calculable
         $this->check($a, $b);
 
         return $a / $b;
-    }
-
-    public function check($a, $b)
-    {
-        $this->originalCheck($a, $b);
-
-        if ($a == 0 || $b == 0) {
-            throw new \DivisionByZeroError('Argument cannot be zero.');
-        }
     }
 }

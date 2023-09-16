@@ -6,6 +6,11 @@ class Subtraction implements Calculable
 {
     use Validator;
 
+    public function check($a, $b)
+    {
+        $this->validate([$a, $b]);
+    }
+
     /**
      * @param int|float $a
      * @param int|float $b
