@@ -32,11 +32,11 @@ class ValidatorTest extends TestCase
     }
 
     /** @test */
-    public function it_can_throw_an_exception_when_a_wrong_type_argument()
+    public function it_can_throw_an_exception_when_an_argument_of_a_wrong_type()
     {
         $this->expectException(InvalidOperationArgument::class);
         $this->expectExceptionMessage('numeric');
 
-        $this->wrapper->check('wrong');
+        $this->wrapper->check(42, 'wrong');
     }
 }
