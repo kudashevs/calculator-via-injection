@@ -2,6 +2,7 @@
 
 namespace CalculatorViaInterface\Tests\Operations;
 
+use CalculatorViaInterface\Exceptions\InvalidOperationArgument;
 use CalculatorViaInterface\Operations\Validator;
 use PHPUnit\Framework\TestCase;
 
@@ -24,7 +25,7 @@ class ValidatorTest extends TestCase
     /** @test */
     public function it_can_throw_an_exception_when_no_arguments_provided()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidOperationArgument::class);
         $this->expectExceptionMessage('at least');
 
         $this->wrapper->check();
@@ -33,7 +34,7 @@ class ValidatorTest extends TestCase
     /** @test */
     public function it_can_throw_an_exception_when_a_wrong_type_argument()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidOperationArgument::class);
         $this->expectExceptionMessage('numeric');
 
         $this->wrapper->check('wrong');

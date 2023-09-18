@@ -2,6 +2,8 @@
 
 namespace CalculatorViaInterface\Operations;
 
+use CalculatorViaInterface\Exceptions\InvalidOperationArgument;
+
 class Division implements Calculable
 {
     use Validator {
@@ -29,7 +31,7 @@ class Division implements Calculable
 
         foreach ($arguments as $argument) {
             if ($argument == 0) {
-                throw new \InvalidArgumentException('Cannot divide by zero.');
+                throw new InvalidOperationArgument('Cannot divide by zero.');
             }
         }
     }

@@ -2,6 +2,7 @@
 
 namespace CalculatorViaInterface;
 
+use CalculatorViaInterface\Exceptions\InvalidOperationArgument;
 use CalculatorViaInterface\Operations\Calculable;
 
 class Calculator
@@ -23,6 +24,8 @@ class Calculator
      *
      * @param mixed ...$arguments
      * @return int|float
+     *
+     * @throws InvalidOperationArgument
      */
     public function calculate(...$arguments)
     {

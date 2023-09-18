@@ -2,12 +2,14 @@
 
 namespace CalculatorViaInterface\Operations;
 
+use CalculatorViaInterface\Exceptions\InvalidOperationArgument;
+
 trait Validator
 {
     /**
      * @param ...$arguments
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidOperationArgument
      */
     private function validate(...$arguments): void
     {
@@ -18,7 +20,7 @@ trait Validator
     private function checkEmptyArguments(array $arguments): void
     {
         if (count($arguments) === 0) {
-            throw new \InvalidArgumentException('Please provide at least one argument.');
+            throw new InvalidOperationArgument('Please provide at least one argument.');
         }
     }
 
@@ -26,7 +28,7 @@ trait Validator
     {
         foreach ($arguments as $argument) {
             if (!is_numeric($argument)) {
-                throw new \InvalidArgumentException('Only numeric arguments are allowed.');
+                throw new InvalidOperationArgument('Only numeric arguments are allowed.');
             }
         }
     }
