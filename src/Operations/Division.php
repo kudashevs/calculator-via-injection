@@ -29,7 +29,7 @@ class Division implements Calculable
 
         foreach ($arguments as $argument) {
             if ($argument == 0) {
-                throw new \DivisionByZeroError('Cannot divide by zero.');
+                throw new \InvalidArgumentException('Cannot divide by zero.');
             }
         }
     }
