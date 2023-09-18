@@ -28,7 +28,7 @@ class Division implements Calculable
         $this->traitValidate($arguments);
 
         foreach ($arguments as $argument) {
-            if ($argument === 0) {
+            if ($argument == 0) {
                 throw new \DivisionByZeroError('Cannot divide by zero.');
             }
         }
