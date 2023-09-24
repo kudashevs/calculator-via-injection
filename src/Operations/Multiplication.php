@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CalculatorViaInterface\Operations;
 
 class Multiplication implements Calculable
