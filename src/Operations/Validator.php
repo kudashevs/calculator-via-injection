@@ -7,14 +7,14 @@ use CalculatorViaInterface\Exceptions\InvalidOperationArgument;
 trait Validator
 {
     /**
-     * @param ...$arguments
+     * @param array<int|float> $arguments
      *
      * @throws InvalidOperationArgument
      */
-    private function validate(...$arguments): void
+    private function validate(array $arguments): void
     {
-        $this->checkEmptyArguments(...$arguments);
-        $this->checkNumericArguments(...$arguments);
+        $this->checkEmptyArguments($arguments);
+        $this->checkNumericArguments($arguments);
     }
 
     private function checkEmptyArguments(array $arguments): void
