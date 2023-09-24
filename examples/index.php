@@ -8,16 +8,16 @@ use CalculatorViaInterface\Operations\Addition;
 use CalculatorViaInterface\Operations\Division;
 
 try {
-    $calc = new Calculator(new Addition(), 1, 2);
-    echo $calc->calculate() . PHP_EOL; // 3
+    $addition = new Calculator(new Addition());
+    echo $addition->calculate(1, 2) . PHP_EOL; // results in 3
 } catch (\Exception $e) {
     error_log('PHP Exception: ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine() . '', 0);
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    $calc = new Calculator(new Division(), 1, 2);
-    echo $calc->calculate() . PHP_EOL; // 0.5
+    $division = new Calculator(new Division());
+    echo $division->calculate(1, 2) . PHP_EOL; // results in 0.5
 } catch (\Exception $e) {
     error_log('PHP Exception: ' . $e->getMessage() . ' in file ' . $e->getFile() . ' on line ' . $e->getLine() . '', 0);
     echo $e->getMessage() . PHP_EOL;
