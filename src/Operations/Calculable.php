@@ -5,10 +5,10 @@ namespace CalculatorViaInterface\Operations;
 interface Calculable
 {
     /**
-     * @param int|float ...$arguments
+     * @param int|float ...$numbers
      * @return int|float
      *
      * @throws \InvalidArgumentException
      */
-    public function calculate(...$arguments);
+    public function calculate(...$numbers);
 }
