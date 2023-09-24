@@ -22,13 +22,13 @@ class Calculator
     /**
      * Perform calculations.
      *
-     * @param mixed ...$arguments
+     * @param mixed ...$numbers
      * @return int|float
      *
      * @throws InvalidOperationArgument
      */
-    public function calculate(...$arguments)
+    public function calculate(...$numbers)
     {
-        return $this->operator->calculate(...$arguments);
+        return $this->operator->calculate(...$numbers);
     }
 }
