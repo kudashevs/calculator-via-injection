@@ -11,16 +11,16 @@ class Division implements Calculable
     }
 
     /**
-     * @param int|float ...$arguments
+     * @param int|float ...$numbers
      * @return int|float
      */
-    public function calculate(...$arguments)
+    public function calculate(...$numbers)
     {
-        $this->validate($arguments);
+        $this->validate($numbers);
 
-        $start = array_shift($arguments);
+        $start = array_shift($numbers);
 
-        return array_reduce($arguments, function ($carry, $value) {
+        return array_reduce($numbers, function ($carry, $value) {
             return $carry / $value;
         }, $start);
     }

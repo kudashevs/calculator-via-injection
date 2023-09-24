@@ -7,13 +7,13 @@ class Addition implements Calculable
     use Validator;
 
     /**
-     * @param int|float ...$arguments
+     * @param int|float ...$numbers
      * @return int|float
      */
-    public function calculate(...$arguments)
+    public function calculate(...$numbers)
     {
-        $this->validate($arguments);
+        $this->validate($numbers);
 
-        return array_sum($arguments);
+        return array_sum($numbers);
     }
 }
