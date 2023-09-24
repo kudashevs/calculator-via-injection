@@ -41,8 +41,8 @@ class CalculatorTest extends TestCase
     /** @test */
     public function it_uses_an_operation_when_it_performs_calculations()
     {
-        // however, this test seems to be redundant and white box testing
-        // I'd like to keep it here for the education purposes
+        // This test seems to be redundant and sort of white box testing,
+        // however, I'd like to keep it here for the educational purposes
         $additionMock = $this->createMock(Addition::class);
         $additionMock->expects($this->once())
             ->method('calculate')
