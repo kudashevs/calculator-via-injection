@@ -26,7 +26,16 @@ multiplication, division). Each class uses the `Validator` trait to perform vali
 the default trait's method and extends its functionality. For more information see the [Operations](src/Operations/) folder).
 
 The decomposition might look strange, and it is. But this is just an example on how we can inject one object into another one
-and assign a piece of behavior to a variable. 
+and assign a piece of behavior to a variable.
+
+
+## Things to learn
+
+[//]: # (@todo don't forget to update the line numbers)
+Things that you can learn from this case study:
+- [how a constructor dependency injection works](src/Calculator.php#L19)
+- how to [delegate calls/messages to another object](src/Calculator.php#L34)
+- how to [override and extend methods inherited from traits](src/Operations/Division.php#L30)
 
 
 ## License
