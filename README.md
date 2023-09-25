@@ -28,8 +28,8 @@ the default trait's method and extends its functionality. For more information s
 The validation of input arguments is implemented in the [Validator](src/Operations/Validator.php) trait. Therefore, every operation
 might use the trait for validation, or might not. We don't force the `Calculable` implementations to use the predefined validation.
 
-The decomposition might look strange, and it is. But this is just an example on how we can inject one object into another one
-and assign a piece of behavior to a variable.
+**Note** The decomposition might look strange, and it really is. However, this is just a study case on how we can use the dependency
+injection to assign some predefined behavior to a variable. It almost imitates a [closure study case](https://github.com/kudashevs/calculator-via-closures).
 
 
 ## Things to learn
