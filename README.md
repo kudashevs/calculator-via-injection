@@ -33,7 +33,7 @@ and assign a piece of behavior to a variable.
 
 [//]: # (@todo don't forget to update the line numbers)
 Things that you can learn from this case study:
-- [how a constructor dependency injection works](src/Calculator.php#L19)
+- [how the constructor dependency injection works](src/Calculator.php#L19)
 - how to [delegate calls/messages to another object](src/Calculator.php#L34)
 - how to [override and extend methods inherited from traits](src/Operations/Division.php#L30)
 
