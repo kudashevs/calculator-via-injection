@@ -25,6 +25,9 @@ By default, the package provides four classes that correspond to the basic math 
 multiplication, division). Each class uses the `Validator` trait to perform validation. The `Division` class overrides
 the default trait's method and extends its functionality. For more information see the [Operations](src/Operations/) folder).
 
+The validation of input arguments is implemented in the [Validator](src/Operations/Validator.php) trait. Therefore, every operation
+might use the trait for validation, or might not. We don't force the `Calculable` implementations to use the predefined validation.
+
 The decomposition might look strange, and it is. But this is just an example on how we can inject one object into another one
 and assign a piece of behavior to a variable.
 
