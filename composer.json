@@ -1,8 +1,8 @@
 {
-    "name": "kudashevs/calculator-via-interface",
-    "type": "study-case",
-    "description": "A simple calculator app that implements math operations through a dependency injection.",
-    "keywords": ["php", "study", "study case", "calculator", "interface"],
+    "name": "kudashevs/calculator-via-injection",
+    "type": "case-study",
+    "description": "A simple calculator app that implements math operations via a dependency injection.",
+    "keywords": ["php", "study", "case study", "calculator", "interface"],
     "license": "MIT",
     "authors": [
         {
