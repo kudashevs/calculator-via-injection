@@ -18,5 +18,6 @@ echo $addition->calculate(1, 2); // results in 3
 for more usage examples, please see the [examples](examples/) folder.
 
 
-This isn't a production solution, but only a training exercise which helps better understand how interfaces and DI work.  
-Any ideas, suggestions, and reviews will be much appreciated :)
+## License
+
+The MIT License (MIT). Please see the [License file](LICENSE.md) for more information.
