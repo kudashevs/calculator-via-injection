@@ -1,13 +1,21 @@
-## Calculator Via Interface
+# Calculator Via Injection
 
-A simple calculator app is written in PHP and implements mathematics operations through simple injected classes unified
-with an interface.
+This is a case study that aims to show one of the possible ways of injecting functionality in PHP language.
 
-Basic idea is to use Calculator class which receives something, that implements Operable interface, and two numerical arguments.
-To make calculations we should execute the calculate() method. Calculation result depends on passed object implementation.
-Don't treat this class seriously, here Abstract class would work better, but I wanted to keep the main idea, the source of
-that project. That's why the final version of the class is over-engineered with Validator trait. The example of Calculator
-class usage you can find in index.php file in the root directory.
+
+## How it works
+ 
+We are given a `Calculator` class that requires an instance of `Calculable` as its constructor parameter. The
+`Calculable` is just an abstraction of some calculations, which are represented by the `calculate` method, that
+accepts a variable number of arguments ([variadic function](https://en.wikipedia.org/wiki/Variadic_function)). To
+start using the injection, we need to define a piece of functionality (a math operation in our case) that conforms
+to our abstraction, and provide its instance to the `Calculator` at the moment of the instantiation.
+
+```php
+$addition = new Calculator(new Addition());
+echo $addition->calculate(1, 2); // results in 3
+```
+for more usage examples, please see the [examples](examples/) folder.
 
 
 This isn't a production solution, but only a training exercise which helps better understand how interfaces and DI work.  
