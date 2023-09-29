@@ -18,7 +18,7 @@ class Multiplication implements Calculable
 
         $start = array_shift($numbers);
 
-        return array_reduce($numbers, function ($carry, $value) {
+        return array_reduce($numbers, static function ($carry, $value) {
             return $carry * $value;
         }, $start);
     }
