@@ -27,6 +27,9 @@ class Division implements Calculable
         }, $start);
     }
 
+    /**
+     * @param array<int|float> $arguments
+     */
     private function validate(array $arguments): void
     {
         $this->traitValidate($arguments);
