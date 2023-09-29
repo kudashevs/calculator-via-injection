@@ -19,6 +19,9 @@ trait Validator
         $this->checkNumericArguments($arguments);
     }
 
+    /**
+     * @param array<int|float> $arguments
+     */
     private function checkEmptyArguments(array $arguments): void
     {
         if (count($arguments) === 0) {
@@ -26,6 +29,9 @@ trait Validator
         }
     }
 
+    /**
+     * @param array<int|float> $arguments
+     */
     private function checkNumericArguments(array $arguments): void
     {
         foreach ($arguments as $argument) {
