@@ -24,7 +24,7 @@ class Calculator
     /**
      * Perform calculations.
      *
-     * @param mixed ...$numbers
+     * @param int|float ...$numbers
      * @return int|float
      *
      * @throws InvalidOperationArgument
